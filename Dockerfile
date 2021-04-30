@@ -1,7 +1,7 @@
 FROM openjdk:8-jre
-LABEL maintainer "Philippe Poumaroux <poum@cpan.org>"
+LABEL maintainer "Mike Tallroth <mike.tallroth@gmail.com>"
 
-ENV VERSION=6.6.0.13
+ENV VERSION=7.3.0.19
 
 RUN curl -o /cmd.run.zip http://cdn.sencha.com/cmd/$VERSION/no-jre/SenchaCmd-$VERSION-linux-amd64.sh.zip && \
     unzip -p /cmd.run.zip > /cmd-install.run && \
