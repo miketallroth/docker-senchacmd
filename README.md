@@ -12,12 +12,12 @@ See https://hub.docker.com/r/miketallroth/senchacmd/
 
 one time framework download / setup
 ```
-docker run -v ${PWD}:/code --workdir /code miketallroth/senchacmd:ext7.3 generate app -ext Framework ./framework
+docker run -v ${PWD}:/code --workdir /code miketallroth/senchacmd:7.3 generate app -ext Framework ./framework
 ```
 
 generate app - one time per app
 ```
-docker run -v ${PWD}:/code --workdir /code miketallroth/senchacmd:ext7.3 -sdk /code/framework/ext generate app MyApp ./myapp
+docker run -v ${PWD}:/code --workdir /code miketallroth/senchacmd:7.3 -sdk /code/framework/ext generate app MyApp ./myapp
 ```
 
 bypass problem with discontinued phantomjs
@@ -29,10 +29,10 @@ vi local.properties
 
 app build - from app directory
 ```
-docker run -v ${PWD}:/code --workdir /code miketallroth/senchacmd:ext7.3 app build
+docker run -v ${PWD}:/code --workdir /code miketallroth/senchacmd:7.3 app build
 ```
 
 app watch - from app directory
 ```
-docker run -p 1841:1841 -v ${PWD}:/code --workdir /code miketallroth/senchacmd:ext7.3 app watch
+docker run -p 1841:1841 -v ${PWD}:/code --workdir /code miketallroth/senchacmd:7.3 app watch
 ```
