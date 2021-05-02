@@ -22,4 +22,11 @@ RUN curl -o /cmd.run.zip http://cdn.sencha.com/cmd/$VERSION/no-jre/SenchaCmd-$VE
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/* 
 
+WORKDIR /framework
+
+RUN /opt/Sencha/sencha generate app -ext Framework .
+RUN chmod -R a+rw /opt/Sencha/Cmd/repo
+
+WORKDIR /code
+
 ENTRYPOINT ["/opt/Sencha/sencha"]
