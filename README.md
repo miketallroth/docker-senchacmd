@@ -10,17 +10,12 @@ See https://hub.docker.com/r/miketallroth/senchacmd/
 
 # Usage
 
-one time framework download / setup
+generate app - one time per app - works as user - adds '?' directory ???
 ```
-docker run -v ${PWD}:/code --workdir /code miketallroth/senchacmd:7.3 generate app -ext Framework ./framework
-```
-
-generate app - one time per app
-```
-docker run -v ${PWD}:/code --workdir /code miketallroth/senchacmd:7.3 -sdk /code/framework/ext generate app MyApp ./myapp
+docker run --rm -v ${PWD}:/code -u $(id -u ${USER}):$(id -g ${USER}) miketallroth/senchacmd:7.3 -sdk /framework/ext generate app MyApp ./myapp
 ```
 
-bypass problem with discontinued phantomjs
+bypass problem with discontinued phantomjs - entrypoint must NOT include -sdk /framework/ext
 ```
 cd myapp
 vi local.properties
@@ -29,10 +24,15 @@ vi local.properties
 
 app build - from app directory
 ```
-docker run -v ${PWD}:/code --workdir /code miketallroth/senchacmd:7.3 app build
+docker run --rm -v ${PWD}:/code -u $(id -u ${USER}):$(id -g ${USER}) miketallroth/senchacmd:7.3 app build
 ```
 
-app watch - from app directory
+app watch - from app directory - must add port map!
 ```
-docker run -p 1841:1841 -v ${PWD}:/code --workdir /code miketallroth/senchacmd:7.3 app watch
+docker run --rm -p 1841:1841 -v ${PWD}:/code -u $(id -u ${USER}):$(id -g ${USER}) miketallroth/senchacmd:7.3 app watch
 ```
+
+
+
+
+
